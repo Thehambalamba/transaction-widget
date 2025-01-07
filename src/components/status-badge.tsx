@@ -14,7 +14,7 @@ function StatusBadge({ status }: Props) {
     <div
       className={`px-3 py-1  rounded-2xl justify-start items-center gap-1 inline-flex ${statusStyles[status]}`}
     >
-      <p className="text-inherit text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px]">
+      <p className="text-inherit text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px] pt-0.5">
         {status}
       </p>
     </div>

@@ -19,7 +19,7 @@ function TabButton({ tab, activeTab, changeActiveTab }: Props) {
           "bg-white border-secondarySand200 !text-charcoal hover:!text-secondaryCharcoal400"
       )}
     >
-      <p className="text-inherit text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px] 2xl:text-sm">
+      <p className="text-inherit text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px] 2xl:text-sm pt-0.5">
         {tab}
       </p>
     </button>

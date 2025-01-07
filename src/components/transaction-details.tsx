@@ -76,14 +76,14 @@ function TransactionDetails({
       </div>
       <div className="flex gap-1 items-center">
         {senderBadge[unit as KnownUnits] || null}
-        <p className="text-secondaryCharcoal300 text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px] text-ellipsis overflow-hidden whitespace-nowrap break-keep">
+        <p className="text-secondaryCharcoal300 text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px] text-ellipsis overflow-hidden whitespace-nowrap break-keep pt-0.5">
           {sender}
         </p>
       </div>
       {isPending && (
         <div className="flex justify-between mt-1">
           <div className="flex gap-[5px] items-center h-3.5">
-            <p className="text-secondaryCharcoal300 text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px]">
+            <p className="text-secondaryCharcoal300 text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px] pt-0.5">
               <span className="text-primaryBlueSky600">{approvedNumber}</span>/
               {neededNumber}
             </p>
@@ -98,7 +98,7 @@ function TransactionDetails({
               />
             </div>
           </div>
-          <p className="text-secondaryCharcoal300 text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px]">
+          <p className="text-secondaryCharcoal300 text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px] pt-0.5">
             {formatRelativeTime(timestamp)}
           </p>
         </div>
