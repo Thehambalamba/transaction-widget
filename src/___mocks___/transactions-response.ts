@@ -40,7 +40,7 @@ export const transactionsResponse: TransactionResponse = {
     createTransaction(7, "BTC", 700, "2/3", TransactionStatus.Rejected),
     createTransaction(8, "OP", 800, "1/1", TransactionStatus.Approved),
     createTransaction(9, "AVAX", 900, "3/5", TransactionStatus.Submitted),
-    createTransaction(10, "STR", 100, "4/5", TransactionStatus.Rejected),
+    createTransaction(10, "STR", 10, "4/5", TransactionStatus.Rejected),
   ],
   pending: [
     createTransaction(1, "BTC", 100, "2/5", TransactionStatus.Approved),
@@ -52,6 +52,6 @@ export const transactionsResponse: TransactionResponse = {
     createTransaction(7, "BTC", 700, "2/3", TransactionStatus.Rejected),
     createTransaction(8, "OP", 800, "1/1", TransactionStatus.Approved),
     createTransaction(9, "AVAX", 900, "3/5", TransactionStatus.Submitted),
-    createTransaction(10, "STR", 100, "4/5", TransactionStatus.Rejected),
+    createTransaction(10, "STR", 20, "4/5", TransactionStatus.Rejected),
   ],
 };
