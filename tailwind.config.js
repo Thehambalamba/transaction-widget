@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        '2xl': '1920px',
+        "2xl": "1920px",
       },
       colors: {
         charcoal: "#232323",
@@ -24,5 +24,19 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }) => {
+      addUtilities({
+        ".scrollbar-hide": {
+          /* Hide scrollbar for Chrome, Safari, and Opera */
+          "-webkit-overflow-scrolling": "touch",
+          "scrollbar-width": "none" /* Firefox */,
+          "-ms-overflow-style": "none" /* IE and Edge */,
+          "&::-webkit-scrollbar": {
+            display: "none" /* Chrome, Safari, and Opera */,
+          },
+        },
+      });
+    },
+  ],
 };

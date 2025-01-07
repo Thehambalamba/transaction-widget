@@ -18,6 +18,16 @@ function TransactionSkeleton() {
         <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
         <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
         <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
+        <Skeleton className="h-[88px] 2xl:h-[92px] w-full bg-secondarySand200 rounded-xl" />
       </div>
     </div>
   );

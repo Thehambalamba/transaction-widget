@@ -3,8 +3,6 @@ import TabButton from "./tab-button";
 import TransactionList from "./transaction-list";
 import type { transactionsResponse } from "../___mocks___/transactions-response";
 
-import TransactionSkeleton from "./skeletons/transaction-skeleton";
-
 type Props = {
   tabs: string[];
   activeTab: string;
@@ -18,12 +16,8 @@ function TransactionWidget({
   changeActiveTab,
   transactions,
 }: Props) {
-  if (!transactions) {
-    return <TransactionSkeleton />;
-  }
-
   return (
-    <div className="w-full h-full bg-secondarySand50 rounded-2xl shadow-[0px_0px_8px_0px_rgba(232,221,209,0.40)] flex-col justify-start gap-6 inline-flex overflow-hidden p-3 xl:p-6 xl:gap-11 xl:min-w-[375px]">
+    <>
       <div className="flex justify-between">
         <div className="flex items-center gap-2 xl:gap-4">
           <div className="h-8 p-2 bg-secondarySand200 rounded-[74.89px] border-secondarySand300 justify-start items-start inline-flex xl:w-11 xl:h-11 2xl:h-[60px] 2xl:w-[60px] xl:justify-center xl:items-center">
@@ -44,13 +38,17 @@ function TransactionWidget({
           ))}
         </div>
       </div>
-      <TransactionList
-        transactions={
-          activeTab === "History" ? transactions.history : transactions.pending
-        }
-        isPending={activeTab !== "History"}
-      />
-    </div>
+      {transactions && (
+        <TransactionList
+          transactions={
+            activeTab === "History"
+              ? transactions.history
+              : transactions.pending
+          }
+          isPending={activeTab !== "History"}
+        />
+      )}
+    </>
   );
 }
 
