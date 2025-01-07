@@ -1,14 +1,21 @@
+import MessageSkeleton from "./skeletons/message-skeleton";
+
 type Props = {
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
 };
-function WelcomeMessage({ firstName, lastName }: Props) {
+
+export default function WelcomeMessage({ firstName, lastName }: Props) {
+  if (!firstName || !lastName) {
+    return <MessageSkeleton />;
+  }
+
   return (
-    <p className="text-charcoal text-xl font-normal font-['Basis Grotesque Pro'] leading-normal m-2">
-      Welcome back, <br />
-      {firstName} {lastName}
-    </p>
+    <div className="xl:h-56 2xl:h-[248px] xl:flex xl:items-center">
+      <p className="text-charcoal text-xl font-normal font-['Basis Grotesque Pro'] leading-normal m-2 xl:text-[44px] xl:leading-[48px] xl:p-6 xl:m-0">
+        Welcome back, <br />
+        {firstName} {lastName}
+      </p>
+    </div>
   );
 }
-
-export default WelcomeMessage;

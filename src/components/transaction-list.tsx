@@ -6,7 +6,7 @@ type Props = {
   isPending: boolean;
 };
 
-function TransactionList({ transactions, isPending }: Props): JSX.Element {
+function TransactionList({ transactions, isPending }: Props) {
   return (
     <div className="flex flex-col gap-2">
       {transactions.map(

@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,svg}"],
   theme: {
     extend: {
+      screens: {
+        '2xl': '1920px',
+      },
       colors: {
         charcoal: "#232323",
         secondaryCharcoal400: "#6D6D6D",

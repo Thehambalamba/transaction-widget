@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchTransactions = async () => {
       // Simulate server delay
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       setTransactions(transactionsResponse);
     };
 
@@ -25,23 +25,21 @@ function App() {
   }
 
   return (
-    <div className="p-5 flex flex-col gap-4">
-      {transactions ? (
-        <>
-          <WelcomeMessage
-            firstName={transactions.firstName}
-            lastName={transactions.lastName}
-          />
-          <TransactionWidget
-            tabs={tabs}
-            activeTab={activeTab}
-            changeActiveTab={changeActiveTab}
-            transactions={transactions}
-          />
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <div className="p-5 flex flex-col gap-4 xl:pt-12 xl:p-6 xl:gap-3 xl:min-h-screen">
+      <WelcomeMessage
+        firstName={transactions?.firstName}
+        lastName={transactions?.lastName}
+      />
+      <div className="w-full xl:grid xl:grid-cols-3 xl:gap-3 xl:flex-1">
+        <div className="hidden xl:block h-full p-6 bg-[#fbfaf8] rounded-[20px]" />
+        <TransactionWidget
+          tabs={tabs}
+          activeTab={activeTab}
+          changeActiveTab={changeActiveTab}
+          transactions={transactions}
+        />
+        <div className="hidden xl:block h-full p-6 bg-[#fbfaf8] rounded-[20px]" />
+      </div>
     </div>
   );
 }

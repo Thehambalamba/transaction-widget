@@ -50,7 +50,10 @@ function TransactionDetails({
   const neededWidth = 166 - approvedWidth;
 
   return (
-    <div className="w-full px-3 py-2 bg-white rounded-xl shadow-[0px_0px_4px_0px_rgba(232,221,209,0.40)] border-secondarySand100 flex flex-col gap-2">
+    <div
+      className="w-full px-3 py-2 bg-white rounded-xl shadow-[0px_0px_4px_0px_rgba(232,221,209,0.40)] border-secondarySand100 flex flex-col gap-2 xl:px-5 2xl:py-3 "
+      style={{ height: isPending ? "92px" : "70px" }}
+    >
       <div className="flex justify-between min-h-[22px]">
         <div className="flex gap-1 wrap">
           <p className="text-secondaryCharcoal400 text-sm font-normal font-['Basis Grotesque Pro'] leading-[18px]">
@@ -78,7 +81,7 @@ function TransactionDetails({
         </p>
       </div>
       {isPending && (
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-1">
           <div className="flex gap-[5px] items-center h-3.5">
             <p className="text-secondaryCharcoal300 text-xs font-normal font-['Basis Grotesque Pro'] leading-[14px]">
               <span className="text-primaryBlueSky600">{approvedNumber}</span>/
