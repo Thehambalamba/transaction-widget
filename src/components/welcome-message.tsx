@@ -3,10 +3,15 @@ import MessageSkeleton from "./skeletons/message-skeleton";
 type Props = {
   firstName?: string;
   lastName?: string;
+  isLoading: boolean;
 };
 
-export default function WelcomeMessage({ firstName, lastName }: Props) {
-  if (!firstName || !lastName) {
+export default function WelcomeMessage({
+  firstName,
+  lastName,
+  isLoading,
+}: Props) {
+  if (isLoading) {
     return <MessageSkeleton />;
   }
 

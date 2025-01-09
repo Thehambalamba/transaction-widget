@@ -3,35 +3,40 @@ import TransactionDetails from "./transaction-details";
 
 type Props = {
   transactions: Transaction[];
-  isPending: boolean;
 };
 
-function TransactionList({ transactions, isPending }: Props) {
+function TransactionList({ transactions }: Props) {
   return (
     <div className="flex flex-col gap-2">
-      {transactions.map(
-        ({
-          id,
-          status,
-          value,
-          unit,
-          receiver,
-          sender,
-          approvalProgress,
-          timestamp,
-        }) => (
-          <TransactionDetails
-            key={id}
-            status={status}
-            value={value}
-            unit={unit}
-            receiver={receiver}
-            sender={sender}
-            approvalProgress={approvalProgress}
-            isPending={isPending}
-            timestamp={timestamp}
-          />
+      {transactions.length ? (
+        transactions.map(
+          ({
+            id,
+            status,
+            value,
+            unit,
+            receiver,
+            sender,
+            approvalProgress,
+            timestamp,
+            submited,
+          }) => (
+            <TransactionDetails
+              key={id}
+              status={status}
+              value={value}
+              unit={unit}
+              receiver={receiver}
+              sender={sender}
+              approvalProgress={approvalProgress}
+              timestamp={timestamp}
+              submited={submited}
+              id={id}
+            />
+          )
         )
+      ) : (
+        <h1>No pending transactions</h1>
       )}
     </div>
   );

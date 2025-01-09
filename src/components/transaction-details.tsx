@@ -7,6 +7,7 @@ import Starknet from "./icons/starknet";
 import SUI from "./icons/sui";
 import StatusBadge from "./status-badge";
 import { formatRelativeTime } from "../utils/date-utils";
+import useTransactionStore from "../context/transactions";
 
 type Props = Pick<
   Transaction,
@@ -17,7 +18,9 @@ type Props = Pick<
   | "status"
   | "approvalProgress"
   | "timestamp"
-> & { isPending: boolean };
+  | "submited"
+  | "id"
+>;
 
 function TransactionDetails({
   value,
@@ -25,10 +28,18 @@ function TransactionDetails({
   receiver,
   sender,
   status,
-  isPending,
+  submited,
   approvalProgress,
   timestamp,
+  id,
 }: Props) {
+  const incrementApproval = useTransactionStore(
+    (state) => state.incrementApproval
+  );
+  const approve = useTransactionStore((state) => state.approve);
+  const reject = useTransactionStore((state) => state.reject);
+
+  const isPending = !submited;
   const senderBadge = {
     [KnownUnits.AVAX]: <Avalanche />,
     [KnownUnits.BTC]: <Bitcoin />,
@@ -48,6 +59,19 @@ function TransactionDetails({
   const approvedWidth =
     (Number.parseInt(approvedNumber) / Number.parseInt(neededNumber)) * 166;
   const neededWidth = 166 - approvedWidth;
+
+  function handleApprove(id: number) {
+    const [approvals, total] = approvalProgress.split("/");
+    if (+approvals + 1 < +total) {
+      incrementApproval(id);
+    } else {
+      approve(id);
+    }
+  }
+
+  function handleReject(id: number) {
+    reject(id);
+  }
 
   return (
     <div
@@ -72,7 +96,26 @@ function TransactionDetails({
             {truncatedReciver}
           </p>
         </div>
-        {!isPending && <StatusBadge status={status} />}
+        {!isPending ? (
+          <StatusBadge status={status} />
+        ) : (
+          <div className="flex gap-2">
+            <button
+              type="button"
+              className="bg-primaryBlueSky50 rounded-md px-2 py-1 text-primaryBlueSky600 hover:text-charcoal"
+              onClick={() => handleApprove(id)}
+            >
+              <p className="text-sm text-inherit">Approve</p>
+            </button>
+            <button
+              type="button"
+              onClick={() => handleReject(id)}
+              className="bg-primaryOrange50 rounded-md px-2 py-1 text-primaryOrange500 hover:text-charcoal"
+            >
+              <p className="text-sm text-inherit">Reject</p>
+            </button>
+          </div>
+        )}
       </div>
       <div className="flex gap-1 items-center">
         {senderBadge[unit as KnownUnits] || null}
