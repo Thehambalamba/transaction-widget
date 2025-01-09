@@ -9,4 +9,5 @@ export interface Transaction {
   approvalProgress: string; // Approvals received out of total required (e.g., 2/5)
   timestamp: string; // Relative time showing when the transaction was created (e.g., 1 hr ago)
   status: TransactionStatus;
+  submited: boolean;
 }
